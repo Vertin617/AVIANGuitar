@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel=icon href=images/logo.ico>
+    <title>购物车详情页</title>
+    <link rel="stylesheet" href="css/webstyle.css">
+    <link rel="stylesheet" href="css/shop.css">
+    <script type="text/javascript" src="js/jquery.js"></script>
+    <script type="text/javascript" src="js/web.js"></script>
+    <script type="text/javascript" src="js/nav.js"></script>
+</head>
+<body>
+    <!--头部代码开始-->
+    <div class="top">
+        <div id="text">欢迎来到飞鸟吉他！</div>
+        <div id="t">
+            <button><a href="zhuce.html">注册</a></button>
+            <a href="shopping.html" id="one">购物车</a>
+        </div>
+    </div>
+   <!-- 导航栏 -->
+   <div class="header">
+    <a href="index.html" class="logo"><img src="images/logo1.png" alt="logo" /></a>
+    <li class="n on"><a href="index.html">首页</a></li>
+    <li class="n">
+        <a href="pro.html">产品中心</a>
+        <ul>
+            <li><a href="#" style="font-style: italic;">Songbird夜莺</a></li>
+            <li><a href="#" style="font-style: italic;">Skylark云雀</a></li>
+            <li><a href="#" style="font-style: italic;">dove白鸽</a></li>
+            <li><a href="#" style="font-style: italic;">penguin企鹅</a></li>
+        </ul>
+    </li>
+    <li class="n">
+        <a href="activ.html">最新活动</a>
+        <ul>
+            <li><a href="paiming.html">人气排名</a></li>
+            <li><a href="ask.html">问题反馈</a></li>
+        </ul>
+    </li>
+    <li class="n">
+        <a href="shicai.html">品质之作</a>
+        <ul>
+            <li><a href="#" style="font-style: italic;">相信我们</a></li>
+            <li><a href="#" style="font-style: italic;">品质无忧</a></li>
+        </ul>
+    </li>
+    <li class="n">
+        <a href="about.html">关于我们</a>
+        <ul>
+            <li><a href="#" style="font-style: italic;">品牌故事</a></li>
+            <li><a href="#" style="font-style: italic;">产品理念</a></li>
+            <li><a href="#" style="font-style: italic;">品牌创建</a></li>
+            <li><a href="#" style="font-style: italic;">我们团队</a></li>
+        </ul>
+    </li>
+</div>
+<!--头部代码结束-->
+
+    <!--头部代码结束-->
+    <div class="container">
+        <div class="list">
+            <h3>商品推荐</h3>
+            <ul class="goods">
+                <li>
+                    <img src="images/n_pro1.jpg">
+                    <p class="desc">夜莺7A</p>
+                    <p class="price">&yen;5200</p>
+                    <a href="javascript:void(0)" class="buy" data-pid="p001">购买</a>
+                </li>
+                <li>
+                    <img src="images/d_3.jpg">
+                    <p class="desc">云雀4A</p>
+                    <p class="price">&yen;4999</p>
+                    <a href="javascript:void(0)" class="buy" data-pid="p002">购买</a>
+                </li>
+                <li>
+                    <img src="images/ice_3.jpg">
+                    <p class="desc">印玫6A</p>
+                    <p class="price">&yen;8888</p>
+                    <a href="javascript:void(0)" class="buy" data-pid="p003">购买</a>
+                </li>
+                <li>
+                    <img src="images/lun_m_3.jpg">
+                    <p class="desc">白鸽4A</p>
+                    <p class="price">&yen;6666</p>
+                    <a href="javascript:void(0)" class="buy" data-pid="p004">购买</a>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="cart">
+            <h3 class="title">购物车详情</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <td>
+                            <span class="ischecked chked glyphicon glyphicon-check"></span>
+                            <span class="ischecked unchked glyphicon glyphicon-unchecked"></span>
+                            <input type="checkbox" id="selAll" checked="checked">全选
+                        </td>
+                        <td>商品信息</td>
+                        <td>单价（美元）</td>
+                        <td>数量</td>
+                        <td>小计（元）</td>
+                        <td>操作</td>
+                    </tr>
+                </thead>
+                
+                <tr data-pid="p001">
+                    <td>
+                        <span class="ischecked chked glyphicon glyphicon-check"></span>
+                        <span class="ischecked unchked glyphicon glyphicon-unchecked"></span>
+                        <input type="checkbox" class="pid" checked="checked">
+                    </td>
+                    <td>
+                        <img src="images/n_pro1.jpg" >
+                        <span class="pname">高端定制</span>
+                    </td>
+                    <td class="price">$999</td>
+                    <td>
+                        <button class="sub">-</button>
+                        <input type="text" class="number" value="1"/>
+                        <button class="add">+</button>
+                    </td>
+                    <td class="count">$999</td>
+                    <td><a href="javascript:void(0)" class="del">删除</a></td>
+                </tr>
+                <template id="temp">
+                    <tr data-pid="{{pid}}">
+                        <td>
+                            <span class="ischecked chked glyphicon glyphicon-check"></span>
+                            <span class="ischecked unchked glyphicon glyphicon-unchecked"></span>
+                            <input type="checkbox" class="pid" checked="checked">
+                        </td>
+                        <td>
+                            <img src="{{src}}" >
+                            <span class="pname">{{pname}}</span>
+                        </td>
+                        <td class="price">&yen;{{price}}</td>
+                        <td>
+                            <button class="sub">-</button>
+                            <input type="text" class="number" value="1"/>
+                            <button class="add">+</button>
+                        </td>
+                        <td class="count">&yen;{{price}}</td>
+                        <td><a href="javascript:void(0)" class="del">删除</a></td>
+                    </tr>
+                </template>
+            </table>
+            <div class="orders-total">
+                <p>共<span class="total">1</span>件商品
+                总金额
+                <span class="total-money">$999</span>
+                </p>
+                <div class="checkout">
+                    
+                    <a href="javascript:void(0)" id="to-checkout" onclick="accounts();">
+                        立即结算
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+
+
+   <!--尾部代码开始-->
+   <div class="footer">
+    <div class="foot_con">
+        <div class="ft_con_l">
+            <img src="images/logo1.png" alt="logo" style="width: 170px;height: 50px;" />
+            <div class="erweima">
+                <img src="images/erweima.jpg" alt="扫微信二维码" />
+            </div>
+            <div class="tubiao">
+                <ul>
+                    <li><a href="#"><img src="images/qq.png" alt="联系我们qq" /></a></li>
+                    <li><a href="#"><img src="images/weixin.png" alt="联系我们微信" /></a></li>
+                    <li><a href="#"><img src="images/weibo.png" alt="联系我们微博" /></a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="ft_con_r">
+            <dl>
+                <dt><a href="about.html">关于我们</a></dt>
+                <dd><a href="about.html" target="_new">品牌故事</a></dd>
+                <dd><a href="about.html" target="_new">产品理念</a></dd>
+                <dd><a href="about.html" target="_new">品牌创建</a></dd>
+                <dd><a href="about.html" target="_new">我们团队</a></dd>
+            </dl>
+
+            <dl>
+                <dt><a href="shicai.html">品质之作</a></dt>
+                <dd><a href="shicai.html" target="_new">相信我们</a></dd>
+                <dd><a href="shicai.html" target="_new">品质无忧</a></dd>
+            </dl>
+
+            <dl>
+                <dt><a href="activ.html">最新活动</a></dt>
+                <dd><a href="paiming.html" target="_new">人气排名</a></dd>
+<!--                <dd><a href="ask.html" target="_new">问题反馈</a></dd>-->
+            </dl>
+
+            <dl>
+                <dt><a href="pro.html">产品中心</a></dt>
+                <dd><a href="pro.html" target="_new">汉堡</a></dd>
+                <dd><a href="pro.html" target="_new">炸鸡</a></dd>
+                <dd><a href="pro.html" target="_new">冰淇淋</a></dd>
+                <dd><a href="pro.html" target="_new">饮品</a></dd>
+            </dl>
+
+            <dl>
+                <dt><a href="index.html">首页</a></dt>
+
+            </dl>
+            <dl>
+                <dt>网站导航</dt>
+                <dd><a href="zhuce.html" target="_new">注册</a></dd>
+                <dd><a href="shopping.html" target="_new">购物车</a></dd>
+            </dl>
+        </div>
+        <div class="clear"></div>
+    </div>
+</div>
+<!--尾部代码结束-->
+
+    <!--版权代码开始-->
+    <div class="copy">版权信息</div>
+    <!--版权代码结束-->
+
+    <script src="js/jquery-3.3.1.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        //定义存储数据的容器
+        var datas = {
+            p001:{pname:'苏芒之心',price:52,src:'images/n_pro1.jpg'},
+            p002:{pname:'彼岸时光',price:49,src:'images/d_3.jpg'},
+            p003:{pname:'冰雪皇后',price:24,src:'images/ice_3.jpg'},
+            p004:{pname:'坚果列巴',price:35,src:'images/lun_m_3.jpg'}
+        }
+        //点击购买
+        $('.buy').click(function(){
+            //获取data-pid属性的值
+            var pid = $(this).attr('data-pid');
+            //点击某个数据的详细信息
+            var info = datas[pid];
+            //判断是否存在   默认不存在
+            var isExist = false;
+            //遍历
+            var index = 0;   //匹配数据䣌索引
+            
+            $('tbody>tr').each(function(idx,ele){
+                //判断
+                if(pid==$(ele).attr('data-pid')){
+                    //有重复的
+                    isExist=true;
+                    index = idx;
+                }
+            })
+            //alert(isExist)
+            if(isExist){
+                //触发某个重复元素的+号的点击事件   gt  大于索引  lt    trigger触发器
+                $('tbody>tr').eq(index).find('.add').trigger('click');
+            }else{
+                //判断没有重复数据䣌
+                var html1 = $('#temp').html();
+                //替换值
+                html1 = html1.replace('{{pid}}',pid);
+                html1 = html1.replace('{{src}}',info.src);
+                html1 = html1.replace('{{price}}',info.price);
+                html1 = html1.replace('{{price}}',info.price);
+                html1 = html1.replace('{{pname}}',info.pname);
+                //拼接
+                $('tbody').append($(html1));
+            }
+            TotalPrice();
+        })
+        
+        
+        $('table').on('click','.del',function(){
+            //弹框  提醒是否删除
+            var flag=confirm('您确定要删除商品吗？');
+            if(flag){
+                $(this).parent().parent().remove();
+            }
+            TotalPrice();
+        });
+        
+        //3  计算数量和总价
+        function TotalPrice(){
+            var sum = 0;  //总价的变量
+            var count = 0; //数量变量
+            //遍历
+            $('tbody>tr').each(function(idx,ele){
+                //判断框是否被选中
+                var flag = $(ele).find('.pid')[0].checked;
+                //alert(flag);
+                if(flag){
+                    sum +=parseInt($(ele).find('.count').html().substring(1));
+                    count+= parseInt($(ele).find('.number').val());
+                }
+            })
+            //赋值
+            $('.total-money').html('&yen;'+sum);
+            $('.total').html(count);
+        }
+        
+        //减法
+        $('table').on('click','.sub',function(){
+            //得到input元素里的值
+            var num = $(this).next().val();
+            if(num==1){
+                //判断删除
+                var flag=confirm('再减就没有了，您确定要清除商品吗？');
+                if(flag){
+                    $(this).parent().parent().remove();
+                }
+            }else{
+                num--;
+                //更新赋值
+                $(this).next().val(num);
+                //单价  price
+                var price = $(this).parent().siblings('.price').html().substring(1);
+                var result = calPrice(num,price);
+                //更新赋值
+                $(this).parent().next().html('&yen;'+result);
+            }
+            TotalPrice();
+        })
+        //小计
+        function calPrice(num,price){
+            return num*price;
+        }
+        
+        //加法
+        $('table').on('click','.add',function(){
+            var num = $(this).prev().val();
+            num++;
+            //更新赋值
+            $(this).prev().val(num);
+            var price = $(this).parent().prev().html().substring(1);
+            //小计
+            var result = calPrice(num,price);
+            $(this).parent().next().html('&yen;'+result);
+            TotalPrice();
+        })
+
+        function accounts(){
+    var flag=confirm("您已选定商品，将进入交费页面。");
+    if(flag){
+        alert("您的订单已生成。");
+    }
+    else{
+        alert("该操作未进行！");
+    }
+}
+        
+
+    
+
+    </script>
+</body>
+
+</html>
