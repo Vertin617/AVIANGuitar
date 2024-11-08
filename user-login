@@ -1,0 +1,60 @@
+function checkForm() {
+    var ZC_1 = checkUserName();
+    var ZC_2 = checkPassword();
+    var ZC_3 = ConfirmPassword();
+    var ZC_4 = checkPhone();
+    return ZC_1 && ZC_2 && ZC_3 && ZC_4;
+}
+//验证用户名
+function checkUserName() {
+    var ZC_5 = document.getElementById("userName");
+    var ZC_6 = document.getElementById("nameErr");
+    var ZC_7 = /^\w{3,12}$/; //用户名格式正则表达式：用户名要至少三位
+    if (ZC_5.value.length == 0) {
+        ZC_6.innerHTML = "用户名不能为空";
+        ZC_6.className = "error";
+        return false;
+    }
+    if (!ZC_7.test(ZC_5.value)) {
+        ZC_6.innerHTML = "用户名不合规范";
+        ZC_6.className = "error";
+        return false;
+    } else {
+        ZC_6.innerHTML = "OK";
+        ZC_6.className = "success";
+        return true;
+    }
+}
+//验证密码
+function checkPassword() {
+    var ZC_8 = document.getElementById("userPasword");
+    var ZC_9 = document.getElementById("passwordErr");
+    var ZC_7 = /^\w{4,8}$/; //密码要在4-8位
+    if (!ZC_7.test(ZC_8.value)) {
+        ZC_9.innerHTML = "密码不合规范";
+        ZC_9.className = "error";
+        return false;
+    } else {
+        ZC_9.innerHTML = "OK";
+        ZC_9.className = "success";
+        return true;
+    }
+}
+//确认密码
+function ConfirmPassword() {
+    var ZC_8 = document.getElementById("userPasword");
+    var ZC_10 = document.getElementById("userConfirmPasword");
+    var ZC_11 = document.getElementById("conPasswordErr");
+    if (
+        ZC_8.value != ZC_10.value ||
+        ZC_10.value.length == 0
+    ) {
+        ZC_11.innerHTML = "上下密码不一致";
+        ZC_11.className = "error";
+        return false;
+    } else {
+        ZC_11.innerHTML = "OK";
+        ZC_11.className = "success";
+        return true;
+    }
+}
